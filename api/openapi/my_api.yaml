@@ -1,0 +1,74 @@
+openapi: 3.0.0
+info:
+  description: 
+    This is a pds-phenotype-mapping-plugin.  You can find
+    out more about Swagger at
+    [http://swagger.io](http://swagger.io) or on
+    [irc.freenode.net, #swagger](http://swagger.io/irc/).
+  version: "1.0.0"
+  title: pds-profile-plugin
+  license:
+    name: MIT
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  /profile:
+    get:
+      summary: Add patient record directory, patient_id, system and diagnosis code
+      operationId: api.profile
+      parameters:
+        - in: query
+          name: patient_id
+          schema:
+            type: string
+          required: true
+        - in: query
+          name: model
+          schema:
+            type: string
+          required: true
+        - in: query
+          name: model_plugin_interface
+          schema:
+            type: string
+          required: true
+        - in: query
+          name: phenotype_mapping_plugin_interface
+          schema:
+            type: string
+          required: true
+        - in: query
+          name: timestamp
+          schema:
+            type: string
+          required: true
+      responses: # has to match output of dispatcher.py
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+        '405':
+          description: Invalid input
+components:
+  schemas:
+    Profile:
+      type: array
+      items:
+        type: object
+        properties:
+          clinical_feature_variable:
+            type: string
+          value: {}
+          calculation:
+            type: string
+          certitude:
+            type: integer
+          for:
+            type: string
+        required:
+          - clinical_feature_variable
+          - value
+          - calculation
+          - certitude
+          - for
