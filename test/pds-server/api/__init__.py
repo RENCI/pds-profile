@@ -32,7 +32,7 @@ phenotypes = {
 def get_clinical_feature_variables(model):
     return clinical_feature_variables.get(model, (404, "Not Found"))
 
-def get_phenotype(patient_id, clinical_feature_variable, timestamp):
+def get_phenotype(patient_id, clinical_feature_variable, data_provider_plugin_interface, timestamp):
     phenotype = phenotypes.get(patient_id)
     if phenotype is None:
         return 404, "Not Found"

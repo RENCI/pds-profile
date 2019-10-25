@@ -34,6 +34,11 @@ paths:
           schema:
             type: string
           required: true
+        - name: data_provider_plugin_interface
+          in: query
+          schema:
+            type: string
+          required: true
         - name: timestamp
           in: query
           schema:
