@@ -12,7 +12,7 @@ def profile(patient_id, model, model_plugin_interface, phenotype_mapping_plugin_
     profile = []
     for clinical_feature_variable_object in clinical_feature_variable_objects:
         clinical_feature_variable = clinical_feature_variable_object["clinical_feature_variable"]
-        for_variable = clinical_feature_variable_object["for"]
+        description = clinical_feature_variable_object["description"]
         url = f"{pds_url_base}/{phenotype_mapping_plugin_interface}/mapping?patient_id={patient_id}&clinical_feature_variable={clinical_feature_variable}&data_provider_plugin_interface={data_provider_plugin_interface}&timestamp={timestamp}"
         print(f"url = {url}")
         resp2 = requests.get(url)
@@ -21,7 +21,7 @@ def profile(patient_id, model, model_plugin_interface, phenotype_mapping_plugin_
         sys.stdout.flush()
         profile.append({
             "clinical_feature_variable": clinical_feature_variable,
-            "for": for_variable,
+            "description": description,
             "value": value_object["value"],
             "calculation": value_object["calculation"],
             "certitude": value_object["certitude"]

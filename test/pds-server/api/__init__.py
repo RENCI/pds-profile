@@ -1,13 +1,13 @@
 clinical_feature_variables = {
     "m": [{
         "clinical_feature_variable": "v0",
-        "for": "f0"
+        "description": "f0"
     }, {
         "clinical_feature_variable": "v1",
-        "for": "f1"
+        "description": "f1"
     }, {
         "clinical_feature_variable": "v2",
-        "for": "f2"
+        "description": "f2"
     }]
 }
 
