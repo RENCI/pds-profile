@@ -1,7 +1,8 @@
 import os
 import requests
 import sys
-from jsonschema import validate
+from tx.utils import get
+from oslash import Left, Right
 
 pds_host = os.environ["PDS_HOST"]
 pds_port = os.environ["PDS_PORT"]
@@ -31,28 +32,11 @@ cfv_schema = {
 
 def profile(patient_id, model, model_plugin_id, phenotype_mapping_plugin_id, data_provider_plugin_id, timestamp):
     url = f"{pds_url_base}/{model_plugin_id}/clinical_feature_variables?model={model}"
-    resp1 = requests.get(url)
-    status_code = resp1.status_code
-    if status_code != 200:
-        try:
-            resp = resp1.json()
-        except:
-            resp = resp1.text
-        return {
-            "url": url,
-            "status_code": status_code,
-            "response": resp
-        }, 500
-    clinical_feature_variable_objects = resp1.json()
-    try:
-        validate(clinical_feature_variable_objects, cfv_schema)
-    except Exception as e:
-        return {
-            "url": url,
-            "status_code": status_code,
-            "response": clinical_feature_variable_objects,
-            "error": str(e)
-        }, 500
+    resp1 = get(url, schema=cfv_schema)
+    if isinstance(resp1, Left):
+        return resp1.value
+    clinical_feature_variable_objects = resp1.value
+    
     profile = []
     for clinical_feature_variable_object in clinical_feature_variable_objects:
         clinical_feature_variable = clinical_feature_variable_object["clinical_feature_variable"]
@@ -60,8 +44,10 @@ def profile(patient_id, model, model_plugin_id, phenotype_mapping_plugin_id, dat
         title = clinical_feature_variable_object["title"]
         url = f"{pds_url_base}/{phenotype_mapping_plugin_id}/mapping?patient_id={patient_id}&clinical_feature_variable={clinical_feature_variable}&data_provider_plugin_id={data_provider_plugin_id}&timestamp={timestamp}"
         print(f"url = {url}")
-        resp2 = requests.get(url)
-        value_object = resp2.json()
+        resp2 = get(url)
+        if isinstance(resp2, Left):
+            return resp2.value
+        value_object = resp2.value
         print(f"value_object = {value_object}")
         sys.stdout.flush()
         profile.append({
