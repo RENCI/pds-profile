@@ -44,7 +44,15 @@ def profile(patient_id, model, model_plugin_id, phenotype_mapping_plugin_id, dat
             "response": resp
         }, 500
     clinical_feature_variable_objects = resp1.json()
-    validate(clinical_feature_variable_objects, cfv_schema)
+    try:
+        validate(clinical_feature_variable_objects, cfv_schema)
+    except Exception as e:
+        return {
+            "url": url,
+            "status_code": status_code,
+            "response": clinical_feature_variable_objects,
+            "error": str(e)
+        }, 500
     profile = []
     for clinical_feature_variable_object in clinical_feature_variable_objects:
         clinical_feature_variable = clinical_feature_variable_object["clinical_feature_variable"]
