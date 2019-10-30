@@ -34,7 +34,7 @@ paths:
           schema:
             type: string
           required: true
-        - name: data_provider_plugin_interface
+        - name: data_provider_plugin_id
           in: query
           schema:
             type: string
