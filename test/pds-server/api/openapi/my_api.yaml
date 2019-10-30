@@ -3,7 +3,7 @@ info:
   title: "fhir server"
   version: "1.0.0"
 paths:
-  /plugin/mp/clinical_feature_variables:
+  /v1/plugin/mp/clinical_feature_variables:
     get:
       operationId: api.get_clinical_feature_variables
       parameters:
@@ -20,7 +20,7 @@ paths:
               schema: {}
         '404':
           description: not found
-  /plugin/pm/mapping:
+  /v1/plugin/pm/mapping:
     get:
       operationId: api.get_phenotype
       parameters:

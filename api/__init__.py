@@ -5,7 +5,7 @@ from jsonschema import validate
 
 pds_host = os.environ["PDS_HOST"]
 pds_port = os.environ["PDS_PORT"]
-pds_url_base = f"http://{pds_host}:{pds_port}/plugin"
+pds_url_base = f"http://{pds_host}:{pds_port}/v1/plugin"
 cfv_schema = {
     "type": "array",
     "items": {
