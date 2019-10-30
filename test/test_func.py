@@ -14,18 +14,21 @@ def test_api():
         "calculation": "c0",
         "certitude": 0,
         "description": "f0",
+        "title": "t0",
         "clinical_feature_variable": "v0"
     }, {
         "value": "a1",
         "calculation": "c1",
         "certitude": 1,
         "description": "f1",
+        "title": "t1",
         "clinical_feature_variable": "v1"
     }, {
         "value": "a2",
         "calculation": "c2",
         "certitude": 2,
         "description": "f2",
+        "title": "t2",
         "clinical_feature_variable": "v2"
     }]
     
