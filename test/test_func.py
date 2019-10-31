@@ -5,7 +5,7 @@ json_headers = {
 }
 
 def test_api():
-    result=requests.get("http://pdsprofile:8080/profile?patient_id=1000&model=m&timestamp=2019-10-19T00:00:00Z&phenotype_mapping_plugin_id=pm&model_plugin_id=mp&data_provider_plugin_id=dp", headers=json_headers)
+    result=requests.get("http://pdsprofile:8080/profile?patient_id=1000&model=m&timestamp=2019-10-19T00:00:00Z&phenotype_mapping_plugin_id=pm&model_plugin_id=mp&data_provider_plugin_id=dp", headers=json_headers, verify=False)
     print(result.content)
     assert result.status_code == 200
                 
