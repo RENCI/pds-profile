@@ -56,7 +56,9 @@ def profile(patient_id, model, model_plugin_id, phenotype_mapping_plugin_id, dat
             "title": title,
             "value": value_object["value"],
             "calculation": value_object["calculation"],
-            "certitude": value_object["certitude"]
+            "certitude": value_object["certitude"],
+            "quantity": value_object.get("quantity"),
+            "timestamp": value_object.get("timestamp")
         })
     return profile
             

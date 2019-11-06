@@ -19,15 +19,21 @@ phenotypes = {
         "v0": {
             "value": "a0",
             "certitude": 0,
-            "calculation": "c0"
+            "calculation": "c0",
+            "quantity": "q0",
+            "timestamp": "ts0"
         }, "v1": {
             "value": "a1",
             "certitude": 1,
-            "calculation": "c1"
+            "calculation": "c1",
+            "quantity": "q1",
+            "timestamp": "ts1"
         }, "v2": {
             "value": "a2",
             "certitude": 2,
-            "calculation": "c2"
+            "calculation": "c2",
+            "quantity": "q2",
+            "timestamp": "ts2"
         }
     }
 }
