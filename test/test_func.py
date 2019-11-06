@@ -16,8 +16,8 @@ def test_api():
         "description": "f0",
         "title": "t0",
         "clinical_feature_variable": "v0",
-        "quantity": "q0",
-        "timestamp": "ts0"
+        "quantity": None,
+        "timestamp": None
     }, {
         "value": "a1",
         "calculation": "c1",
@@ -25,8 +25,8 @@ def test_api():
         "description": "f1",
         "title": "t1",
         "clinical_feature_variable": "v1",
-        "quantity": "q1",
-        "timestamp": "ts1"
+        "quantity": None,
+        "timestamp": None
     }, {
         "value": "a2",
         "calculation": "c2",
@@ -34,7 +34,7 @@ def test_api():
         "description": "f2",
         "title": "t2",
         "clinical_feature_variable": "v2",
-        "quantity": "q2",
-        "timestamp": "ts2"
+        "quantity": None,
+        "timestamp": None
     }]
     
