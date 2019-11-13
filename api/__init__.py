@@ -58,15 +58,7 @@ def profile(patient_id, model, model_plugin_id, phenotype_mapping_plugin_id, dat
     sys.stdout.flush()
 
     profile = [{
-        "clinical_feature_variable": clinical_feature_variable_object["clinical_feature_variable"],
-        "description": clinical_feature_variable_object["description"],
-        "title": clinical_feature_variable_object["title"],
-        "unit": clinical_feature_variable_object.get("unit"),
-        "value": value_object["value"],
-        "calculation": value_object["calculation"],
-        "certitude": value_object["certitude"],
-        "quantity": value_object.get("quantity"),
-        "timestamp": value_object.get("timestamp")
+        **clinical_feature_variable_object, **value_object
     } for value_object, clinical_feature_variable_object in zip(value_objects, clinical_feature_variable_objects)]
 
     return profile

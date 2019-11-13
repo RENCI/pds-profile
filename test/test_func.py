@@ -15,29 +15,20 @@ def test_api():
         "certitude": 0,
         "description": "f0",
         "title": "t0",
-        "unit": None,
         "clinical_feature_variable": "v0",
-        "quantity": None,
-        "timestamp": None
     }, {
         "value": "a1",
         "calculation": "c1",
         "certitude": 1,
         "description": "f1",
         "title": "t1",
-        "unit": None,
         "clinical_feature_variable": "v1",
-        "quantity": None,
-        "timestamp": None
     }, {
         "value": "a2",
         "calculation": "c2",
         "certitude": 2,
         "description": "f2",
         "title": "t2",
-        "unit": None,
         "clinical_feature_variable": "v2",
-        "quantity": None,
-        "timestamp": None
     }]
     
