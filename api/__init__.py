@@ -20,6 +20,9 @@ cfv_schema = {
             },
             "title": {
                 "type": "string"
+            },
+            "unit": {
+                "type": "string"
             }
         },
         "required": [
