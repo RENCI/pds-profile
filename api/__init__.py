@@ -46,7 +46,7 @@ def profile(patient_id, model, model_plugin_id, phenotype_mapping_plugin_id, dat
             cfvo2["unit"] = unit
         return cfvo2
     
-    cfvos2 = map(cfvo_to_cfvo2, clinical_feature_variable_objects)
+    cfvos2 = list(map(cfvo_to_cfvo2, clinical_feature_variable_objects))
 
     url = f"{pds_url_base}/{phenotype_mapping_plugin_id}/mapping?patient_id={patient_id}&data_provider_plugin_id={data_provider_plugin_id}&timestamp={timestamp}"
     print(f"url = {url}")
