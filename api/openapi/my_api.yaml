@@ -45,6 +45,7 @@ paths:
           name: timestamp
           schema:
             type: string
+            format: date-time
           required: true
       responses: # has to match output of dispatcher.py
         '200':
@@ -69,11 +70,14 @@ components:
             type: string
           certitude:
             type: integer
-          for:
+          description:
+            type: string
+          title:
             type: string
         required:
           - clinical_feature_variable
           - value
           - calculation
           - certitude
-          - for
+          - description
+          - title

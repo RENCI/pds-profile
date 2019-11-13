@@ -21,15 +21,10 @@ paths:
         '404':
           description: not found
   /v1/plugin/pm/mapping:
-    get:
+    post:
       operationId: api.get_phenotype
       parameters:
         - name: patient_id
-          in: query
-          schema:
-            type: string
-          required: true
-        - name: clinical_feature_variable
           in: query
           schema:
             type: string
@@ -44,6 +39,10 @@ paths:
           schema:
             type: string
           required: true
+      requestBody:
+        content:
+          application/json:
+            schema: {}
       responses: # has to match output of dispatcher.py
         '200':
           description: Successful operation

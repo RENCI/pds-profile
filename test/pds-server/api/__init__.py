@@ -15,32 +15,26 @@ clinical_feature_variables = {
 }
 
 phenotypes = {
-    "1000": {
-        "v0": {
-            "value": "a0",
-            "certitude": 0,
-            "calculation": "c0",
-        }, "v1": {
-            "value": "a1",
-            "certitude": 1,
-            "calculation": "c1",
-        }, "v2": {
-            "value": "a2",
-            "certitude": 2,
-            "calculation": "c2",
-        }
-    }
+    "1000": [{
+        "value": "a0",
+        "certitude": 0,
+        "calculation": "c0",
+    }, {
+        "value": "a1",
+        "certitude": 1,
+        "calculation": "c1",
+    }, {
+        "value": "a2",
+        "certitude": 2,
+        "calculation": "c2",
+    }]
 }
 
 def get_clinical_feature_variables(model):
     return clinical_feature_variables.get(model, (404, "Not Found"))
 
-def get_phenotype(patient_id, clinical_feature_variable, data_provider_plugin_id, timestamp):
-    phenotype = phenotypes.get(patient_id)
-    if phenotype is None:
-        return 404, "Not Found"
-    else:
-        return phenotype.get(clinical_feature_variable, (404, "Not Found"))
+def get_phenotype(patient_id, data_provider_plugin_id, timestamp, body):
+    return phenotypes.get(patient_id, (404, "Not Found"))
 
 
 
