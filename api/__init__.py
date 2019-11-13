@@ -50,7 +50,7 @@ def profile(patient_id, model, model_plugin_id, phenotype_mapping_plugin_id, dat
 
     url = f"{pds_url_base}/{phenotype_mapping_plugin_id}/mapping?patient_id={patient_id}&data_provider_plugin_id={data_provider_plugin_id}&timestamp={timestamp}"
     print(f"url = {url}")
-    resp2 = post(url, json=url)
+    resp2 = post(url, json=cfvos2)
     if isinstance(resp2, Left):
         return resp2.value
     value_objects = resp2.value
