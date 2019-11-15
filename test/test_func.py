@@ -11,6 +11,7 @@ def test_api():
                 
     assert result.json() == [{
         "value": "a0",
+        "unit": "u0",
         "calculation": "c0",
         "certitude": 0,
         "description": "f0",
@@ -18,6 +19,7 @@ def test_api():
         "clinical_feature_variable": "v0",
     }, {
         "value": "a1",
+        "unit": "u1",
         "calculation": "c1",
         "certitude": 1,
         "description": "f1",
@@ -25,6 +27,7 @@ def test_api():
         "clinical_feature_variable": "v1",
     }, {
         "value": "a2",
+        "unit": "u2",
         "calculation": "c2",
         "certitude": 2,
         "description": "f2",

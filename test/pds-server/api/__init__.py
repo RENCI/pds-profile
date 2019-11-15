@@ -17,14 +17,17 @@ clinical_feature_variables = {
 phenotypes = {
     "1000": [{
         "value": "a0",
+        "unit": "u0",
         "certitude": 0,
         "calculation": "c0",
     }, {
         "value": "a1",
+        "unit": "u0",
         "certitude": 1,
         "calculation": "c1",
     }, {
         "value": "a2",
+        "unit": "u0",
         "certitude": 2,
         "calculation": "c2",
     }]
