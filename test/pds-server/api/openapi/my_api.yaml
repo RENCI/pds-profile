@@ -6,12 +6,7 @@ paths:
   /v1/plugin/mp/clinical_feature_variables:
     get:
       operationId: api.get_clinical_feature_variables
-      parameters:
-        - name: model
-          in: query
-          schema:
-            type: string
-          required: true
+      parameters: []
       responses:
         '200':
           description: Successful operation

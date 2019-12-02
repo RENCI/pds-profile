@@ -22,11 +22,6 @@ paths:
             type: string
           required: true
         - in: query
-          name: model
-          schema:
-            type: string
-          required: true
-        - in: query
           name: model_plugin_id
           schema:
             type: string

@@ -33,8 +33,8 @@ cfv_schema = {
     }
 }
 
-def profile(patient_id, model, model_plugin_id, phenotype_mapping_plugin_id, data_provider_plugin_id, timestamp):
-    url = f"{pds_url_base}/{model_plugin_id}/clinical_feature_variables?model={model}"
+def profile(patient_id, model_plugin_id, phenotype_mapping_plugin_id, data_provider_plugin_id, timestamp):
+    url = f"{pds_url_base}/{model_plugin_id}/clinical_feature_variables"
     resp1 = get(url, schema=cfv_schema)
     if isinstance(resp1, Left):
         return resp1.value

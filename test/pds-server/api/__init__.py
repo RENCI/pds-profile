@@ -1,5 +1,5 @@
-clinical_feature_variables = {
-    "m": [{
+clinical_feature_variables = [
+    {
         "clinical_feature_variable": "v0",
         "description": "f0",
         "title": "t0"
@@ -11,8 +11,8 @@ clinical_feature_variables = {
         "clinical_feature_variable": "v2",
         "description": "f2",
         "title": "t2"
-    }]
-}
+    }
+]
 
 phenotypes = {
     "1000": [{
@@ -22,19 +22,19 @@ phenotypes = {
         "calculation": "c0",
     }, {
         "value": "a1",
-        "unit": "u0",
+        "unit": "u1",
         "certitude": 1,
         "calculation": "c1",
     }, {
         "value": "a2",
-        "unit": "u0",
+        "unit": "u2",
         "certitude": 2,
         "calculation": "c2",
     }]
 }
 
-def get_clinical_feature_variables(model):
-    return clinical_feature_variables.get(model, (404, "Not Found"))
+def get_clinical_feature_variables():
+    return clinical_feature_variables
 
 def get_phenotype(patient_id, data_provider_plugin_id, timestamp, body):
     return phenotypes.get(patient_id, (404, "Not Found"))
