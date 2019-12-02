@@ -33,7 +33,10 @@ cfv_schema = {
     }
 }
 
-def profile(patient_id, model_plugin_id, phenotype_mapping_plugin_id, data_provider_plugin_id, timestamp):
+def profile(patient_id, model_plugin_id, timestamp, body):
+    phenotype_mapping_plugin_id = body["phenotype_mapping_plugin_id"]
+    data_provider_plugin_id = body["data_provider_plugin_id"]
+    custom_units = body.get("custom_units")
     url = f"{pds_url_base}/{model_plugin_id}/clinical_feature_variables"
     resp1 = get(url, schema=cfv_schema)
     if isinstance(resp1, Left):
@@ -41,12 +44,17 @@ def profile(patient_id, model_plugin_id, phenotype_mapping_plugin_id, data_provi
     clinical_feature_variable_objects = resp1.value
 
     def cfvo_to_cfvo2(cfvo):
+        cfv = cfvo["clinical_feature_variable"]
         cfvo2 = {
-            "clinical_feature_variable": cfvo["clinical_feature_variable"]
+            "clinical_feature_variable": cfv
         }
         unit = cfvo.get("unit")
         if unit is not None:
             cfvo2["unit"] = unit
+        elif custom_units is not None:
+            cus = [a for a in custom_units if a["clinical_feature_variable"] == cfv]
+            if len(cus) > 0:
+                cfvo2["unit"] = cus[0]["unit"]
         return cfvo2
     
     cfvos2 = list(map(cfvo_to_cfvo2, clinical_feature_variable_objects))

@@ -37,7 +37,18 @@ def get_clinical_feature_variables():
     return clinical_feature_variables
 
 def get_phenotype(patient_id, data_provider_plugin_id, timestamp, body):
-    return phenotypes.get(patient_id, (404, "Not Found"))
+    ps = phenotypes.get(patient_id)
+    if ps is None:
+        return (404, "Not Found")
+    else:
+        for p, cfv in zip(ps, clinical_feature_variables):
+            cus = [a for a in body if a["clinical_feature_variable"] == cfv["clinical_feature_variable"]]
+            if len(cus) > 0:
+                q = cus[0]
+                if "unit" in q:
+                    p["unit"] = q["unit"]
+        return ps
+
 
 
 
