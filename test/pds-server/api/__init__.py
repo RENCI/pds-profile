@@ -45,8 +45,9 @@ def get_phenotype(patient_id, data_provider_plugin_id, timestamp, body):
             cus = [a for a in body if a["clinical_feature_variable"] == cfv["clinical_feature_variable"]]
             if len(cus) > 0:
                 q = cus[0]
-                if "unit" in q:
-                    p["unit"] = q["unit"]
+                unit = q.get("unit")
+                if unit is not None:
+                    p["unit"] = unit
         return ps
 
 
