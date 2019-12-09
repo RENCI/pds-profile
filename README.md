@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/RENCI/pds-profile.svg?token=hSyYs1SXtzNJJDmjUzHi&branch=master)](https://travis-ci.com/RENCI/pds-profile)
+
 # pds-profile-plugin
 
 
