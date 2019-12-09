@@ -91,7 +91,7 @@ components:
             properties:
               clinical_feature_variable:
                 type: string
-                example: "bmi"
+                example: "LOINC:39156-5"
               unit:
                 type: string
                 example: "kg/m^2"
