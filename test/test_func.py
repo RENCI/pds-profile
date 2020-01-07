@@ -52,29 +52,8 @@ def test_api_custom_units():
     print(result.content)
     assert result.status_code == 200
                 
-    assert result.json() == [{
-        "value": "a0",
-        "unit": "u0p",
-        "calculation": "c0",
-        "certitude": 0,
-        "description": "f0",
-        "title": "t0",
-        "clinical_feature_variable": "v0",
-    }, {
-        "value": "a1",
-        "unit": "u1",
-        "calculation": "c1",
-        "certitude": 1,
-        "description": "f1",
-        "title": "t1",
-        "clinical_feature_variable": "v1",
-    }, {
-        "value": "a2",
-        "unit": "u2",
-        "calculation": "c2",
-        "certitude": 2,
-        "description": "f2",
-        "title": "t2",
-        "clinical_feature_variable": "v2",
-    }]
 
+def test_ui():
+    resp = requests.get("http://pdsprofile:8080/ui")
+
+    assert resp.status_code == 200
